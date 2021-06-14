@@ -3,3 +3,29 @@
 // Coreui
 @import '~@coreui/coreui/scss/coreui';
 @import '~@coreui/icons/css/free.min.css';
+
+// Custom css
+.c-sidebar .c-sidebar-nav-link:hover, .c-sidebar .c-sidebar-nav-dropdown-toggle:hover {
+    background: #445673;
+}
+
+a {
+    color: #0065ad;
+}
+
+.card .text-value-lg {
+    font-size: 2.5rem;
+}
+
+.btn-primary,
+.page-item.active .page-link,
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #00a8e5;
+    border-color: #00a8e5;
+}
+
+.btn-primary:hover {
+    background-color: #0299d0;
+    border-color: #0299d0;
+}
+  
