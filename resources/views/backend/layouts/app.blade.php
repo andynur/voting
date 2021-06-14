@@ -10,6 +10,7 @@
     @yield('meta')
 
     @stack('before-styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.25/datatables.min.css"/>
     <link href="{{ mix('css/backend.css') }}" rel="stylesheet">
     <livewire:styles />
     @stack('after-styles')
@@ -21,7 +22,6 @@
         @include('backend.includes.header')
         @include('includes.partials.read-only')
         @include('includes.partials.logged-in-as')
-        @include('includes.partials.announcements')
 
         <div class="c-body">
             <main class="c-main">
@@ -37,10 +37,13 @@
         @include('backend.includes.footer')
     </div><!--c-wrapper-->
 
-    @stack('before-scripts')
+    @stack('before-scripts')    
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/backend.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.25/datatables.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{asset('assets/js/custom.js')}}"></script>
     <livewire:scripts />
     @stack('after-scripts')
 </body>

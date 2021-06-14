@@ -50,3 +50,20 @@ if (! function_exists('homeRoute')) {
         return 'frontend.index';
     }
 }
+
+if (!function_exists('fielf_required')) {
+
+    /**
+     * Prepare the Column Name for Lables.
+     */
+    function fielf_required($required)
+    {
+        $return_text = '';
+
+        if ($required != '') {
+            $return_text = '<span class="text-danger">*</span>';
+        }
+
+        return $return_text;
+    }
+}

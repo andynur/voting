@@ -30,16 +30,72 @@ class UserSeeder extends Seeder
             'active' => true,
         ]);
 
-        if (app()->environment(['local', 'testing'])) {
-            User::create([
-                'type' => User::TYPE_USER,
-                'name' => 'Test User',
-                'email' => 'user@user.com',
-                'password' => 'secret',
-                'email_verified_at' => now(),
-                'active' => true,
-            ]);
-        }
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'Test User',
+            'email' => 'user@user.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'User #1',
+            'email' => 'user1@gmail.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'User #2',
+            'email' => 'user2@gmail.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+        
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'User #3',
+            'email' => 'user3@gmail.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'User #4',
+            'email' => 'user4@gmail.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'User #5',
+            'email' => 'user5@gmail.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'User #6',
+            'email' => 'user6@gmail.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'User #7',
+            'email' => 'user7@gmail.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
 
         $this->enableForeignKeys();
     }
