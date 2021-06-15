@@ -4,21 +4,21 @@
     </button>
 
     <a class="c-header-brand d-lg-none" href="#">
-        <img src="{{asset('img/logo.png')}}" width="78" height="26" class="img-fluid c-sidebar-brand-full">
+        <img src="{{asset('img/logo-black.png')}}" width="80" class="img-fluid c-sidebar-brand-full">
     </a>
 
     <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
         <i class="c-icon c-icon-lg cil-menu"></i>
     </button>
 
-    <ul class="c-header-nav ml-auto mr-4">
+    <ul class="c-header-nav ml-auto mr-2">
         <li class="c-header-nav-item dropdown">
             <x-utils.link class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <x-slot name="text">
                     <div class="c-avatar">
                         <img class="c-avatar-img" src="{{ $logged_in_user->avatar }}" alt="{{ $logged_in_user->email ?? '' }}">
                     </div>
-                    <span class="ml-2">{{ $logged_in_user->name }}</span>
+                    <span class="ml-2 mr-3 d-none d-sm-block">{{ $logged_in_user->name }}</span>
                 </x-slot>
             </x-utils.link>
 

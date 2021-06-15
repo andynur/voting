@@ -1,7 +1,7 @@
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
     <div class="c-sidebar-brand">
-        <img src="{{asset('img/logo.png')}}" width="118" height="46" class="img-fluid c-sidebar-brand-full">
-        <img src="{{asset('img/logo.png')}}" idth="46" height="46" class="img-fluid c-sidebar-brand-minimized">
+        <img src="{{asset('img/logo-text.png')}}" width="118" height="46" class="img-fluid c-sidebar-brand-full">
+        <img src="{{asset('img/logo.png')}}" width="30" class="img-fluid c-sidebar-brand-minimized">
     </div><!--c-sidebar-brand-->
 
     <ul class="c-sidebar-nav">

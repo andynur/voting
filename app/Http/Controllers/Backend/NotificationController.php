@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Domains\Auth\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Jobs\WhatsAppNotification;
 
 class NotificationController extends Controller
 {
@@ -15,7 +16,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $members = User::membersOnly()->get();
+        $members = User::membersOnly()->get(['id', 'name', 'pin', 'wa']);
 
         return view('backend.notifications.index', compact('members'));
     }
@@ -29,7 +30,12 @@ class NotificationController extends Controller
     public function send($user_id)
     {
         $member = User::findOrFail($user_id);
-        dd($member);
+
+        $this->sendWhatsAppNotification($member);
+
+        $message = 'Berhasil mengirim ulang informasi login ke nomor'. $member->wa;
+
+        return back()->withFlashSuccess($message);
     }
 
     /**
@@ -39,10 +45,32 @@ class NotificationController extends Controller
      */
     public function sendAll()
     {
-        $members = User::membersOnly()->get();
+        $members = User::membersOnly()->get(['id', 'name', 'pin', 'wa']);
+        foreach ($members as $member) {
+            $this->sendWhatsAppNotification($member);
+        }
 
-        dd($members);
+        $message = 'Berhasil mengirim seluruh informasi login peserta';
 
+        return back()->withFlashSuccess($message);
+    }
+
+    private function sendWhatsAppNotification($member)
+    {
+        if ($member->wa !== null && $member->wa !== '') {
+            $data = $this->dataTemplate($member);
+
+            WhatsAppNotification::dispatch($data)->onQueue('notif_wa');
+        }
+    }
+
+    private function dataTemplate($member)
+    {
+        return [
+            'phone' => $member->wa,
+            'name' => $member->name,
+            'pin' => $member->pin,
+        ];
     }
 
 }

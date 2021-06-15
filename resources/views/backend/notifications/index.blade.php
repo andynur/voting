@@ -36,7 +36,7 @@
                             <td>{{ $member->pin }}</td>
                             <td>{{ $member->wa }}</td>
                             <td style="width: 150px">
-                                <a href="#" class="btn btn-sm btn-info text-white">
+                                <a href="{{ route('admin.notification.send', $member->id) }}" class="btn btn-sm btn-info text-white">
                                     <i class="cil-send"></i> Kirim Ulang
                                 </a>
                             </td>
