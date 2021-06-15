@@ -33,6 +33,6 @@ class DashboardController
             'candidate_id' => $candidate_id,
             'voter_id' => $voter->id
         ]);
-        return redirect()->route('frontend.user.dashboard', $vote)->withFlashSuccess('Terima karena telah menggunakan suara anda!');
+        return redirect()->route('frontend.user.dashboard')->withFlashSuccess('Terima karena telah menggunakan suara anda!');
     }
 }

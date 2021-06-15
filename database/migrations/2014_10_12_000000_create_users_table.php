@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 20)->unique();
             $table->string('name');
             $table->enum('gender', ['L', 'P', 'O']);
-            $table->string('pin')->nullable();
+            $table->string('pin')->unique()->nullable();
             $table->string('wa')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();

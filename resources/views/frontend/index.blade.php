@@ -67,37 +67,24 @@
         @stack('after-styles')
     </head>
     <body>
-        @include('includes.partials.read-only')
-        @include('includes.partials.logged-in-as')
-        @include('includes.partials.announcements')
 
         <div id="app" class="flex-center position-ref full-height">
-            <div class="top-right links">
-                @auth
-                    @if ($logged_in_user->isUser())
-                        <a href="{{ route('frontend.user.dashboard') }}">@lang('Dashboard')</a>
-                    @endif
-
-                    <a href="{{ route('frontend.user.account') }}">@lang('Account')</a>
-                @else
-                    <a href="{{ route('frontend.auth.login') }}">@lang('Login')</a>
-
-                    @if (config('boilerplate.access.user.registration'))
-                        <a href="{{ route('frontend.auth.register') }}">@lang('Register')</a>
-                    @endif
-                @endauth
-            </div><!--top-right-->
-
             <div class="content">
                 @include('includes.partials.messages')
 
                 <div class="title m-b-md">
-                    <example-component></example-component>
+                    <img src="{{asset('img/logo.png')}}" style="height: 20rem" alt="" class="img-fluid">
                 </div><!--title-->
-
+                <h2 class="font-weight-bold">E-Vote Konda2 Balikpapan</h2>
+                <h2 class="mb-4">17-18 Juni 2021</h2>
                 <div class="links">
-                    <a href="http://laravel-boilerplate.com" target="_blank"><i class="fa fa-book"></i> @lang('Docs')</a>
-                    <a href="https://github.com/rappasoft/laravel-boilerplate" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    @auth
+                        @if ($logged_in_user->isUser())
+                            <a href="{{route('frontend.auth.login')}}" class="btn btn-success py-2 text-white"><i class="fas fa-sign-in-alt mr-2"></i>Dashboard</a>
+                        @endif
+                    @else
+                        <a href="{{route('frontend.auth.login')}}" class="btn btn-success py-2 text-white"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+                    @endauth
                 </div><!--links-->
             </div><!--content-->
         </div><!--app-->

@@ -40,7 +40,7 @@
                             @else
                             <div class="jumbotron text-center w-100">
                                 <i class="fas fa-check-circle fa-5x text-success"></i>
-                                <h1 class="display-4 text-success">Anda sudah memilih!</h1>
+                                <h1 class="font-weight-bold mt-2 text-success">Anda sudah memilih!</h1>
                                 
                                 <p>Terima kasih karena telah menggunakan suara anda dengan bijaksana</p>
                             </div>

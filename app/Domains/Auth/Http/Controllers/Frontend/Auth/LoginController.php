@@ -3,10 +3,13 @@
 namespace App\Domains\Auth\Http\Controllers\Frontend\Auth;
 
 use App\Domains\Auth\Events\User\UserLoggedIn;
+use App\Domains\Auth\Models\User;
 use App\Rules\Captcha;
+use Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use LangleyFoxall\LaravelNISTPasswordRules\PasswordRules;
 
 /**
@@ -47,6 +50,10 @@ class LoginController
         return view('frontend.auth.login');
     }
 
+    public function showUserLoginForm() {
+        return view('frontend.auth.login_user');
+    }
+
     /**
      * Validate the user login request.
      *
@@ -57,13 +64,19 @@ class LoginController
      */
     protected function validateLogin(Request $request)
     {
-        $request->validate([
-            $this->username() => ['required', 'max:255', 'string'],
-            'password' => array_merge(['max:100'], PasswordRules::login()),
-            'g-recaptcha-response' => ['required_if:captcha_status,true', new Captcha],
-        ], [
-            'g-recaptcha-response.required_if' => __('validation.required', ['attribute' => 'captcha']),
-        ]);
+        if($request->has('pin')) {
+            $request->validate([
+                'pin'=> ['required'],
+            ]);
+        } else {
+            $request->validate([
+                $this->username() => ['required', 'max:255', 'string'],
+                'password' => array_merge(['max:100'], PasswordRules::login()),
+                'g-recaptcha-response' => ['required_if:captcha_status,true', new Captcha],
+            ], [
+                'g-recaptcha-response.required_if' => __('validation.required', ['attribute' => 'captcha']),
+            ]);
+        }
     }
 
     /**
@@ -77,6 +90,13 @@ class LoginController
      */
     protected function attemptLogin(Request $request)
     {
+        if($request->has('pin')) {
+            $user = User::where('pin', $request->pin)->first();
+            if(!empty($user)) {
+                dd($user);
+                Auth::loginUsingId($user->id, true);
+            }
+        }
         try {
             return $this->guard()->attempt(
                 $this->credentials($request),
