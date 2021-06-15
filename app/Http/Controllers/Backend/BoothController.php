@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Models\Election;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -14,9 +16,8 @@ class BoothController extends Controller
      */
     public function index(Request $request)
     {
-        $elections = Auth::user()->elections;
-        $selected_election = $request->has('e') ? $elections->where('election_id', $request->e)->first() : $elections->first();
-        return view('backend.booth.index', compact('elections', 'selected_election'));
+        $votes = Election::first()->votes;
+        return view('backend.booth.index', compact('votes'));
     }
 
     /**
