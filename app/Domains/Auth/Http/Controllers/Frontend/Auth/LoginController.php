@@ -47,10 +47,19 @@ class LoginController
      */
     public function showLoginForm()
     {
+        if (Auth::check()) {
+            return redirect('/admin/dashboard');
+        }
+
         return view('frontend.auth.login');
     }
 
-    public function showUserLoginForm() {
+    public function showUserLoginForm()
+    {
+        if (Auth::check()) {
+            return redirect('/voting');
+        }
+
         return view('frontend.auth.login_user');
     }
 
@@ -93,8 +102,9 @@ class LoginController
         if($request->has('pin')) {
             $user = User::where('pin', $request->pin)->first();
             if(!empty($user)) {
-                dd($user);
                 Auth::loginUsingId($user->id, true);
+
+                return redirect('voting');
             }
         }
         try {

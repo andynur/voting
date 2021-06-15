@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\MemberController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\ProfileController;
@@ -25,8 +26,12 @@ Route::group(['as' => 'user.', 'middleware' => ['auth', 'password.expires', conf
             $trail->parent('frontend.index')
                 ->push(__('My Account'), route('frontend.user.account'));
         });
-    
+
     Route::post('election/{election_id}/{candidate_id}', [DashboardController::class, 'election'])->name('dashboard.election');
 
     Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
+
+// whatsapp notification
+Route::get('/voting', [MemberController::class, 'voting'])->name('voting');
+Route::get('/live-polling', [MemberController::class, 'polling'])->name('live-polling');

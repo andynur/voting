@@ -80,10 +80,10 @@ Route::group(['as' => 'auth.'], function () {
         });
     });
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::get('login_user', [LoginController::class, 'showUserLoginForm'])->name('login_user');
+    Route::get('login-member', [LoginController::class, 'showUserLoginForm'])->name('login_member');
     Route::group(['middleware' => 'guest'], function () {
         // Authentication
-        
+
         Route::post('login', [LoginController::class, 'login']);
 
         // Registration

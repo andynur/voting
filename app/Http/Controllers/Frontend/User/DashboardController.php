@@ -16,6 +16,9 @@ class DashboardController
      */
     public function index(Request $request)
     {
+        // redirect ae sementara
+        return redirect('/voting');
+
         $elections = Auth::user()->elections;
         $selected_election = $request->has('e') ? $elections->where('id', $request->e)->first() : Auth::user()->scopeElectionsNotVote()->first();
         return view('frontend.user.dashboard', compact('elections', 'selected_election'));
