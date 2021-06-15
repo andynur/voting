@@ -157,4 +157,15 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
     {
         return UserFactory::new();
     }
+
+    /**
+     * Scope a query to only include user members.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeMembersOnly($query)
+    {
+        return $query->where('type', 'user');
+    }
 }
