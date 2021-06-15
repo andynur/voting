@@ -20,6 +20,8 @@ Route::resource('elections', ElectionsController::class);
 // whatsapp notification
 Route::group(['prefix' => 'notification', 'as' => 'notification.',], function () {
     Route::get('/', [NotificationController::class, 'index'])->name('index');
+    Route::get('/edit/{user_id}', [NotificationController::class, 'edit'])->name('edit');
+    Route::patch('/update/{user_id}', [NotificationController::class, 'update'])->name('update');
     Route::get('/send/{user_id}', [NotificationController::class, 'send'])->name('send');
     Route::get('/send-all', [NotificationController::class, 'sendAll'])->name('send_all');
 });

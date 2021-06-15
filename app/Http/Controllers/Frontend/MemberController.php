@@ -11,8 +11,13 @@ use Illuminate\Http\Request;
 class MemberController extends Controller
 {
     public function voting() {
-        $election = Auth::user()->elections->first();
-        return view('frontend.user.dashboard', compact('election'));
+        if (Auth::check() && Auth::user()->isUser()) {
+            $election = Auth::user()->elections->first();
+
+            return view('frontend.user.dashboard', compact('election'));
+        }
+
+        abort(404);
     }
 
     public function voted($candidate_id) {

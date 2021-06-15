@@ -35,9 +35,12 @@
                             <td>{{ $member->name }}</td>
                             <td>{{ $member->pin }}</td>
                             <td>{{ $member->wa }}</td>
-                            <td style="width: 150px">
+                            <td style="width: 210px">
                                 <a href="{{ route('admin.notification.send', $member->id) }}" class="btn btn-sm btn-info text-white">
                                     <i class="cil-send"></i> Kirim Ulang
+                                </a>
+                                <a href="{{ route('admin.notification.edit', $member->id) }}" class="btn btn-sm btn-warning text-white ml-1">
+                                    <i class="cil-pencil"></i> Ubah Data
                                 </a>
                             </td>
                         </tr>

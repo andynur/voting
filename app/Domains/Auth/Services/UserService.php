@@ -162,6 +162,8 @@ class UserService extends BaseService
                 'type' => $user->isMasterAdmin() ? $this->model::TYPE_ADMIN : $data['type'] ?? $user->type,
                 'name' => $data['name'],
                 'email' => $data['email'],
+                'pin' => $data['pin'],
+                'wa' => $data['wa'],
             ]);
 
             if (! $user->isMasterAdmin()) {

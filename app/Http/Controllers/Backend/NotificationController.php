@@ -3,12 +3,28 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Domains\Auth\Models\User;
+use App\Domains\Auth\Services\UserService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jobs\WhatsAppNotification;
 
 class NotificationController extends Controller
 {
+    /**
+     * @var UserService
+     */
+    protected $userService;
+
+    /**
+     * UserController constructor.
+     *
+     * @param  UserService  $userService
+     */
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +35,37 @@ class NotificationController extends Controller
         $members = User::membersOnly()->get(['id', 'name', 'pin', 'wa']);
 
         return view('backend.notifications.index', compact('members'));
+    }
+
+    /**
+     * @param  Request  $request
+     * @param  User  $user
+     *
+     * @return mixed
+     */
+    public function edit(Request $request, $user_id)
+    {
+        $user = User::findOrFail($user_id);
+
+        return view('backend.notifications.edit')->withUser($user);
+    }
+
+    /**
+     * @param  Request  $request
+     * @param  User  $user
+     *
+     * @return mixed
+     * @throws \Throwable
+     */
+    public function update(Request $request, $user_id)
+    {
+        $user = User::findOrFail($user_id);
+
+        $this->userService->update($user, $request->all());
+
+        return redirect()
+            ->route('admin.notification.index')
+            ->withFlashSuccess(__('Berhasil mengubah data peserta.'));
     }
 
     /**
