@@ -9,11 +9,11 @@
                 <x-frontend.card>
                     <x-slot name="body">
                         <x-forms.post :action="route('frontend.auth.login')">
-                            <div class="form-group row">
+                            <div class="form-group">
                                 <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('E-mail Address') }}" value="{{ old('email') }}" maxlength="255" required autofocus autocomplete="email" />
                             </div><!--form-group-->
 
-                            <div class="form-group row">
+                            <div class="form-group">
                                 <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="current-password" />
                             </div><!--form-group-->
                             <button class="btn btn-primary btn-block" type="submit">@lang('Login')</button>
