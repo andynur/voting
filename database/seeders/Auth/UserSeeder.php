@@ -28,6 +28,10 @@ class UserSeeder extends Seeder
             'phone_number' => '080005550555',
             'email' => 'admin@admin.com',
             'password' => 'secret',
+            'name' => 'Administrator',
+            'email' => 'admin@voting.com',
+            'pin' => null,
+            'password' => '123123',
             'email_verified_at' => now(),
             'active' => true,
         ]);
@@ -39,10 +43,14 @@ class UserSeeder extends Seeder
             'phone_number' => '080005550555',
             'email' => 'user@user.com',
             'password' => 'secret',
+            'name' => 'Peserta #1',
+            'email' => 'member1@voting.com',
+            'pin' => rand(0, 999999),
+            'wa' => '+6285161318191',
+            'password' => '123123',
             'email_verified_at' => now(),
             'active' => true,
         ]);
-
         User::create([
             'type' => User::TYPE_USER,
             'name' => 'User #1',
@@ -81,9 +89,15 @@ class UserSeeder extends Seeder
             'phone_number' => '080005550555',
             'email' => 'user4@gmail.com',
             'password' => 'secret',
+            'name' => 'Peserta #2',
+            'email' => 'member2@voting.com',
+            'pin' => rand(0, 999999),
+            'wa' => '+6285161318191',
+            'password' => '123123',
             'email_verified_at' => now(),
             'active' => true,
         ]);
+
         User::create([
             'type' => User::TYPE_USER,
             'name' => 'User #5',
@@ -91,6 +105,11 @@ class UserSeeder extends Seeder
             'phone_number' => '080005550555',
             'email' => 'user5@gmail.com',
             'password' => 'secret',
+            'name' => 'Peserta #3',
+            'email' => 'member3@voting.com',
+            'pin' => rand(0, 999999),
+            'wa' => '+6285161318191',
+            'password' => '123123',
             'email_verified_at' => now(),
             'active' => true,
         ]);
@@ -101,6 +120,11 @@ class UserSeeder extends Seeder
             'phone_number' => '080005550555',
             'email' => 'user6@gmail.com',
             'password' => 'secret',
+            'name' => 'Peserta #4',
+            'email' => 'member4@gmail.com',
+            'pin' => rand(0, 999999),
+            'wa' => '+6285161318191',
+            'password' => '123123',
             'email_verified_at' => now(),
             'active' => true,
         ]);
@@ -111,6 +135,11 @@ class UserSeeder extends Seeder
             'phone_number' => '080005550555',
             'email' => 'user7@gmail.com',
             'password' => 'secret',
+            'name' => 'Peserta #5',
+            'email' => 'member5@voting.com',
+            'pin' => rand(0, 999999),
+            'wa' => '+6285161318191',
+            'password' => '123123',
             'email_verified_at' => now(),
             'active' => true,
         ]);

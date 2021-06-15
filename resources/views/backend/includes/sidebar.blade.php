@@ -58,6 +58,15 @@
                 :text="__('Laporan')" />
         </li>
 
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.notification.index')"
+                :active="activeClass(Route::is('admin.notification.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-bell"
+                :text="__('Notifikasi')" />
+        </li>
+
         @if (
             $logged_in_user->hasAllAccess() ||
             (

@@ -161,11 +161,24 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
         return UserFactory::new();
     }
 
-    public function elections() {
+    /**
+     * Scope a query to only include user members.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeMembersOnly($query)
+    {
+        return $query->where('type', 'user');
+    }
+
+    public function elections()
+    {
         return $this->hasMany(Voter::class, 'user_id');
     }
 
-    public function scopeElectionsNotVote() {
+    public function scopeElectionsNotVote()
+    {
         return $this->elections->where('has_selected', 0);
     }
 }

@@ -20,6 +20,7 @@
                     <div class="c-avatar">
                         <img class="c-avatar-img" src="{{ $logged_in_user->avatar }}" alt="{{ $logged_in_user->email ?? '' }}">
                     </div>
+                    <span class="ml-2">{{ $logged_in_user->name }}</span>
                 </x-slot>
             </x-utils.link>
 

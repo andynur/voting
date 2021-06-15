@@ -22,7 +22,7 @@ class PermissionRoleSeeder extends Seeder
     {
         $this->disableForeignKeys();
 
-        // Create Roles
+        // Create Admin Roles
         Role::create([
             'id' => 1,
             'type' => User::TYPE_ADMIN,
@@ -78,8 +78,12 @@ class PermissionRoleSeeder extends Seeder
             ]),
         ]);
 
-        // Assign Permissions to other Roles
-        //
+        // Create User Role
+        Role::create([
+            'id' => 2,
+            'type' => User::TYPE_USER,
+            'name' => 'Member',
+        ]);
 
         $this->enableForeignKeys();
     }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\CandidateController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ElectionsController;
+use App\Http\Controllers\Backend\NotificationController;
 use App\Http\Controllers\BoothController;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -15,6 +16,15 @@ Route::get('dashboard', [DashboardController::class, 'index'])
     });
 
 Route::resource('elections', ElectionsController::class);
+
+// whatsapp notification
+Route::group(['prefix' => 'notification', 'as' => 'notification.',], function () {
+    Route::get('/', [NotificationController::class, 'index'])->name('index');
+    Route::post('/send/{$ser_id}', [NotificationController::class, 'send'])->name('send');
+    Route::post('/send-all', [NotificationController::class, 'sendAll'])->name('send_all');
+});
+
+// Route::post('notification', [LoginController::class, 'login']);
 Route::post("candidates/{id}", ['as' => "candidates.update_new", 'uses' => "App\Http\Controllers\Backend\CandidateController@update"]);
 Route::resource('candidates', CandidateController::class)->except(['update']);
 Route::resource('booth', BoothController::class);
