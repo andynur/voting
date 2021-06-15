@@ -2,6 +2,12 @@ $(function() {
   $('.table-datatable').DataTable( {
     responsive: true,
   });
+  $('.select2').select2();
+  $(".election-select").on('change', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('e', $(this).val());
+    window.location.search = urlParams;
+  });
   $(document).on('click', '.delete-button', function (e) {
     Swal.fire({
         title: 'Apa anda yakin?',

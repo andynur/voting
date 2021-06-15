@@ -36,8 +36,8 @@
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
-                :href="route('admin.elections.index')"
-                :active="activeClass(Route::is('admin.elections.index'), 'c-active')"
+                :href="route('admin.booth.index')"
+                :active="activeClass(Route::is('admin.booth.index'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-inbox"
                 :text="__('Bilik Suara')" />
         </li>
