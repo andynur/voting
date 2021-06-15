@@ -48,7 +48,11 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
      */
     protected $fillable = [
         'type',
+        'username',
         'name',
+        'gender',
+        'pin',
+        'wa',
         'email',
         'email_verified_at',
         'password',
