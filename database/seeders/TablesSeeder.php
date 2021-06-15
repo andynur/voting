@@ -41,6 +41,7 @@ class TablesSeeder extends Seeder
             ]
         ]);
 
+
         DB::table('election_has_candidates')->insert([
             [
                 'election_id' => 1,
@@ -55,6 +56,12 @@ class TablesSeeder extends Seeder
                 'candidate_id' => 3,
             ],
         ]);
+
+        $members = file_get_contents(database_path('members.sql'));
+        DB::statement($members);
+
+        $member_roles = file_get_contents(database_path('member_roles.sql'));
+        DB::statement($member_roles);
 
         foreach(DB::table('users')->get() as $user) {
             DB::table('voters')->insert([

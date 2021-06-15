@@ -130,6 +130,9 @@
             chart: {
                 type: 'column'
             },
+            title: {
+                text: ''
+            },
             xAxis: {
                 categories: results.map(result => result[0]),
                 title: {

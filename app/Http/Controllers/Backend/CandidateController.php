@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CandidateRequest;
 use App\Models\Candidate;
+use App\Models\ElectionCandidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -68,6 +69,10 @@ class CandidateController extends Controller
         $candidate = Candidate::create($request->all());
         $candidate->profile_image = $this->storeFile($request, 'profile_image', 'candidates', true);
         $candidate->save();
+        ElectionCandidate::create([
+            'election_id' => 1,
+            'candidate_id' => $candidate->id
+        ]);
         return redirect()->route('admin.candidates.index', $candidate)->withFlashSuccess('Data kandidat baru telah dibuat');
     }
 
