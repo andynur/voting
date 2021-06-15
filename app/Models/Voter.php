@@ -16,6 +16,8 @@ class Voter extends Model
         'selected_date'
     ];
 
+    protected $dates = ['selected_date'];
+
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
