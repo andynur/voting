@@ -10,7 +10,7 @@
                     <i class="c-icon cil-user"></i>
                 </span>
             </div>
-            <input class="form-control" name="email" type="email" value="{{ old('email') }}" placeholder="Email Address">
+            <input class="form-control" name="username" type="text" value="{{ old('username') }}" maxlength="20" placeholder="Username">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
