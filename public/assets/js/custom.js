@@ -1,7 +1,6 @@
 $(function() {
   $('.table-datatable').DataTable( {
     responsive: true,
-    "scrollX": true
   });
   $(document).on('click', '.delete-button', function (e) {
     Swal.fire({

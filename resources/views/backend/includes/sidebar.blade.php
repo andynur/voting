@@ -25,6 +25,38 @@
                 icon="c-sidebar-nav-icon cil-folder"
                 :text="__('Pemilihan')" />
         </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.candidates.index')"
+                :active="activeClass(Route::is('admin.candidates.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-user"
+                :text="__('Kandidat')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.elections.index')"
+                :active="activeClass(Route::is('admin.elections.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-inbox"
+                :text="__('Bilik Suara')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.elections.index')"
+                :active="activeClass(Route::is('admin.elections.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-list-rich"
+                :text="__('Kotak Suara')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.elections.index')"
+                :active="activeClass(Route::is('admin.elections.index'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-file"
+                :text="__('Laporan')" />
+        </li>
 
         @if (
             $logged_in_user->hasAllAccess() ||

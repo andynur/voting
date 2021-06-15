@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Tambah Pemilihan'))
+@section('title', __('Tambah Kandidat'))
 
 
 @push('after-styles')
@@ -9,16 +9,16 @@
 @section('content')
   <x-backend.card>
       <x-slot name="header">
-          @lang('Tambah Pemilihan')
+          @lang('Tambah Kandidat')
       </x-slot>
       <x-slot name="headerActions">
-          <x-utils.link class="card-header-action" :href="route('admin.elections.index')" :text="__('Batal')" />
+          <x-utils.link class="card-header-action" :href="route('admin.candidates.index')" :text="__('Batal')" />
       </x-slot>
       
       <x-slot name="body">
-        {{ html()->form('POST', route("admin.elections.store"))->class('form')->open() }}
-        @include ("backend.elections.form")
-        {{ html()->button($text = "<i class='fas fa-plus-circle'></i> Tambah Pemilihan", $type = 'submit')->class('btn btn-sm btn-primary float-right') }}
+        {{ html()->modelForm($candidate, 'POST', route("admin.candidates.update_new", $candidate))->class('form')->attributes(["enctype" => "multipart/form-data"])->open() }}
+        @include ("backend.candidates.form")
+        {{ html()->button($text = "<i class='fas fa-plus-circle'></i> Ubah Kandidat", $type = 'submit')->class('btn btn-sm btn-primary float-right') }}
         {{ html()->form()->close() }}
       </x-slot>
       

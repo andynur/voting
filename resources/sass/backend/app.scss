@@ -3,3 +3,9 @@
 // Coreui
 @import '~@coreui/coreui/scss/coreui';
 @import '~@coreui/icons/css/free.min.css';
+
+.dataTables_length {
+  .custom-select {
+    padding-right: 1.5rem;
+  }
+}
