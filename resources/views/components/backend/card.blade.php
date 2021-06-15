@@ -1,10 +1,10 @@
 <div class="card">
     @if (isset($header))
-        <div class="card-header">
-            {{ $header }}
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h4 class="m-0">{{ $header }}</h4>
 
             @if (isset($headerActions))
-                <div class="card-header-actions">
+                <div class="card-header-actions btn btn-success">
                     {{ $headerActions }}
                 </div><!--card-header-actions-->
             @endif

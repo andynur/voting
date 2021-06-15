@@ -88,10 +88,6 @@ class TablesSeeder extends Seeder
                 'user_id' => 6,
             ],
             [
-                'election_id' => 1,
-                'user_id' => 7,
-            ],
-            [
                 'election_id' => 2,
                 'user_id' => 2,
             ],

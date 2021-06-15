@@ -28,4 +28,12 @@ a {
     background-color: #0299d0;
     border-color: #0299d0;
 }
-  
+
+div.dataTables_wrapper div.dataTables_length select {
+    width: 4rem;
+}
+
+.card-header-action, .card-header-action:hover {
+    padding: 0;
+    color: #fff;
+}
