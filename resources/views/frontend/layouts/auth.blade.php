@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ appName() }} | @yield('title')</title>
+    <link rel="shortcut icon" href=" {{ asset('img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href=" {{ asset('img/favicon.ico') }}" type="image/x-icon">
     @yield('meta')
     <link href="{{ mix('css/backend.css') }}" rel="stylesheet">
     <style>

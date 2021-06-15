@@ -6,7 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ appName() }} | @yield('title')</title>
     <meta name="description" content="@yield('meta_description', appName())">
-    <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
+    <link rel="shortcut icon" href=" {{ asset('img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href=" {{ asset('img/favicon.ico') }}" type="image/x-icon">
     @yield('meta')
 
     @stack('before-styles')
@@ -38,7 +39,7 @@
         @include('backend.includes.footer')
     </div><!--c-wrapper-->
 
-    @stack('before-scripts')    
+    @stack('before-scripts')
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/backend.js') }}"></script>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.auth')
 
-@section('title', 'Login Administrator')
+@section('title', 'Beranda')
 
 @section('content')
     <hr>

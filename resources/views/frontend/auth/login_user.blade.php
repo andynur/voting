@@ -1,6 +1,6 @@
 @extends('frontend.layouts.auth')
 
-@section('title', 'Login Administrator')
+@section('title', 'Login Peserta')
 
 @section('content')
     <x-forms.post :action="route('frontend.auth.login')">
