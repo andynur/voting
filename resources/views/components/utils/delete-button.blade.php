@@ -4,7 +4,7 @@
     :action="$href"
     method="delete"
     name="delete-item"
-    button-class="btn btn-danger btn-sm"
+    button-class="btn btn-danger btn-sm mb-1"
     permission="{{ $permission }}"
 >
     <i class="fas fa-trash"></i> {{ $text }}

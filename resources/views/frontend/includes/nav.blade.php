@@ -13,13 +13,15 @@
                         :text="__('Home')"
                         class="nav-link" />
                 </li>
-                <li class="nav-item">
-                    <x-utils.link
-                        :href="route('frontend.voting')"
-                        :active="activeClass(Route::is('frontend.voting'))"
-                        :text="__('Voting')"
-                        class="nav-link" />
-                </li>
+                @if (auth()->check() && auth()->user()->isUser()) {
+                    <li class="nav-item">
+                        <x-utils.link
+                            :href="route('frontend.voting')"
+                            :active="activeClass(Route::is('frontend.voting'))"
+                            :text="__('Voting')"
+                            class="nav-link" />
+                    </li>
+                @endif
                 <li class="nav-item">
                     <x-utils.link
                         :href="route('frontend.live-polling')"
