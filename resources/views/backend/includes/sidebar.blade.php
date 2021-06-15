@@ -40,8 +40,8 @@
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
-                :href="route('admin.elections.index')"
-                :active="activeClass(Route::is('admin.elections.index'), 'c-active')"
+                :href="route('admin.reports.index')"
+                :active="activeClass(Route::is('admin.reports.index'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-file"
                 :text="__('Laporan')" />
         </li>

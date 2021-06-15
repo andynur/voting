@@ -8,7 +8,7 @@
             <div class="card mb-4 text-white bg-gradient-warning">
                 <div class="card-body pb-2 d-flex justify-content-between align-items-start">
                     <div>
-                        <h3>{{$election->candidates->count()}}</h3>
+                        <h1>{{$election->candidates->count()}}</h1>
                         <h5>Kandidat</h5>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
             <div class="card mb-4 text-white bg-gradient-primary">
                 <div class="card-body pb-2 d-flex justify-content-between align-items-start">
                     <div>
-                        <h3>{{$election->voters->count()}}</h3>
+                        <h1>{{$election->voters->count()}}</h1>
                         <h5>Total Suara</h5>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
             <div class="card mb-4 text-white bg-gradient-success">
                 <div class="card-body pb-2 d-flex justify-content-between align-items-start">
                     <div>
-                        <h3>{{$election->hasVoted()}}</h3>
+                        <h1>{{$election->hasVoted()}}</h1>
                         <h5>Total Sudah Memilih</h5>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
             <div class="card mb-4 text-white bg-gradient-danger">
                 <div class="card-body pb-2 d-flex justify-content-between align-items-start">
                     <div>
-                        <h3>{{$election->yetVoted()}}</h3>
+                        <h1>{{$election->yetVoted()}}</h1>
                         <h5>Total Belum Memilih</h5>
                     </div>
                 </div>
@@ -50,21 +50,7 @@
     <!-- /.col-->
     </div>
     <div class="row">
-        <div class="col-md-6 col-lg-6 col-sm-12">
-            <x-backend.card>
-                <x-slot name="header">
-                    Persentase Perolehan Suara
-                </x-slot>
-                <x-slot name="body">
-                    <div class="body flex-grow-1 px-3">
-                        <div class="container-lg">
-                            <div id="pie-chart"></div>
-                        </div>
-                    </div>
-                </x-slot>
-            </x-backend.card>
-        </div>
-        <div class="col-md-6 col-lg-6 col-sm-12">
+        <div class="col-12">
             <x-backend.card>
                 <x-slot name="header">
                     Perbandingan Perolehan Suara
@@ -73,6 +59,20 @@
                     <div class="body flex-grow-1 px-3">
                         <div class="container-lg">
                             <div id="bar-chart"></div>
+                        </div>
+                    </div>
+                </x-slot>
+            </x-backend.card>
+        </div>
+        <div class="col-12">
+            <x-backend.card>
+                <x-slot name="header">
+                    Persentase Perolehan Suara
+                </x-slot>
+                <x-slot name="body">
+                    <div class="body flex-grow-1 px-3">
+                        <div class="container-lg">
+                            <div id="pie-chart"></div>
                         </div>
                     </div>
                 </x-slot>

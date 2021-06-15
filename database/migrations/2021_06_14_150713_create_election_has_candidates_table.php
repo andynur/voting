@@ -15,7 +15,6 @@ class CreateElectionHasCandidatesTable extends Migration
     {
         Schema::create('election_has_candidates', function (Blueprint $table) {
             $table->id();
-            $table->integer('number')->nullable();
             $table->unsignedBigInteger('election_id');
             $table->unsignedBigInteger('candidate_id');
             $table->timestamps();

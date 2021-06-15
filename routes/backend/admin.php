@@ -4,7 +4,7 @@ use App\Http\Controllers\Backend\CandidateController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ElectionsController;
 use App\Http\Controllers\Backend\NotificationController;
-use App\Http\Controllers\BoothController;
+use App\Http\Controllers\Backend\BoothController;
 use Tabuna\Breadcrumbs\Trail;
 
 // All route names are prefixed with 'admin.'.
@@ -28,3 +28,5 @@ Route::group(['prefix' => 'notification', 'as' => 'notification.',], function ()
 Route::post("candidates/{id}", ['as' => "candidates.update_new", 'uses' => "App\Http\Controllers\Backend\CandidateController@update"]);
 Route::resource('candidates', CandidateController::class)->except(['update']);
 Route::resource('booth', BoothController::class);
+Route::get("reports", ['as' => "reports.index", 'uses' => "App\Http\Controllers\Backend\ReportController@index"]);
+Route::get("reports/export", ['as' => "reports.export", 'uses' => "App\Http\Controllers\Backend\ReportController@export"]);

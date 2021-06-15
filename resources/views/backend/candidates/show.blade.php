@@ -47,7 +47,7 @@
                 <tbody>
                     @foreach ($election->candidates as $candidate)
                         <tr>
-                            <td>{{$candidate->number}}</td>
+                            <td>{{$loop->iteration}}</td>
                             <td>{{$candidate->name}}</td>
                             <td>
                               <img src="{{asset($candidate->profile_image)}}" alt="">
