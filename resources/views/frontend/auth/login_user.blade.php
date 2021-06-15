@@ -10,7 +10,7 @@
                     <i class="c-icon cil-lock-locked"></i>
                 </span>
             </div>
-            <input class="form-control" name="pin" type="text" placeholder="NOMOR PIN PESERTA">
+            <input class="form-control" name="pin" type="text" placeholder="KODE PIN PESERTA">
         </div>
         <button class="btn btn-lg btn-block btn-success" type="submit">Login</button>
         <div class="text-center mt-3">
