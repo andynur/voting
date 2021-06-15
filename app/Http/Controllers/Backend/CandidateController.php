@@ -121,7 +121,7 @@ class CandidateController extends Controller
         $candidate = Candidate::findOrFail($id);
         $candidate->profile_image = $this->editFile($candidate->profile_image, $request, 'profile_image', 'candidates');
         $candidate->save();
-        return redirect()->route('admin.candidates.index', $candidate)->withFlashSuccess('Data kandidat baru telah diubah');
+        return redirect()->route('admin.candidates.index')->withFlashSuccess('Data kandidat baru telah diubah');
     }
 
     /**

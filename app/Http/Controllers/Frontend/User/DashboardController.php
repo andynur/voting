@@ -24,18 +24,18 @@ class DashboardController
         return view('frontend.user.dashboard', compact('elections', 'selected_election'));
     }
 
-    public function election($election_id, $candidate_id) {
+    public function election($candidate_id) {
 
-        $voter = Auth::user()->elections->where('id', $election_id)->first();
+        $voter = Auth::user()->elections->first();
         $voter->update([
             'has_elected' => 1,
-            'selected_date' => now()
+            'elected_date' => now()
         ]);
         $vote = ElectionVote::create([
             'election_id' => $voter->election_id,
             'candidate_id' => $candidate_id,
             'voter_id' => $voter->id
         ]);
-        return redirect()->route('frontend.user.dashboard')->withFlashSuccess('Terima karena telah menggunakan suara anda!');
+        return redirect()->route('frontend.user.dashboard');
     }
 }

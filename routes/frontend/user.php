@@ -34,4 +34,6 @@ Route::group(['as' => 'user.', 'middleware' => ['auth', 'password.expires', conf
 
 // whatsapp notification
 Route::get('/voting', [MemberController::class, 'voting'])->name('voting');
+Route::post('/voted/{candidate_id}', [MemberController::class, 'voted'])->name('voted');
 Route::get('/live-polling', [MemberController::class, 'polling'])->name('live-polling');
+Route::get('/data-polling', [MemberController::class, 'dataPolling'])->name('data-polling');

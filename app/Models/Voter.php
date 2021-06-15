@@ -27,6 +27,6 @@ class Voter extends Model
     }
 
     public function scopeVote() {
-        return ElectionVote::where('election_id', $this->election_id)->where('user_id', $this->user_id)->first();
+        return ElectionVote::where('election_id', $this->election_id)->where('voter_id', $this->id)->first() ?? (object) ['candidate_id' => 0];
     }
 }
