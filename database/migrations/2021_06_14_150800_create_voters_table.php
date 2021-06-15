@@ -18,6 +18,7 @@ class CreateVotersTable extends Migration
             $table->unsignedBigInteger('election_id');
             $table->unsignedBigInteger('user_id');
             $table->boolean('has_elected')->default(0);
+            $table->dateTime('selected_date')->nullable();
             $table->timestamps();
             $table->foreign('election_id')->references('id')->on('elections')->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();

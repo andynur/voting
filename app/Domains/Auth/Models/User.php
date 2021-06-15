@@ -8,6 +8,7 @@ use App\Domains\Auth\Models\Traits\Relationship\UserRelationship;
 use App\Domains\Auth\Models\Traits\Scope\UserScope;
 use App\Domains\Auth\Notifications\Frontend\ResetPasswordNotification;
 use App\Domains\Auth\Notifications\Frontend\VerifyEmail;
+use App\Models\Voter;
 use DarkGhostHunter\Laraguard\Contracts\TwoFactorAuthenticatable;
 use DarkGhostHunter\Laraguard\TwoFactorAuthentication;
 use Database\Factories\UserFactory;
@@ -167,5 +168,15 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
     public function scopeMembersOnly($query)
     {
         return $query->where('type', 'user');
+    }
+
+    public function elections()
+    {
+        return $this->hasMany(Voter::class, 'user_id');
+    }
+
+    public function scopeElectionsNotVote()
+    {
+        return $this->elections->where('has_selected', 0);
     }
 }

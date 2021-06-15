@@ -25,6 +25,8 @@ Route::group(['as' => 'user.', 'middleware' => ['auth', 'password.expires', conf
             $trail->parent('frontend.index')
                 ->push(__('My Account'), route('frontend.user.account'));
         });
+    
+    Route::post('election/{election_id}/{candidate_id}', [DashboardController::class, 'election'])->name('dashboard.election');
 
     Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });

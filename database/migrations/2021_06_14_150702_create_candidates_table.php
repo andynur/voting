@@ -16,7 +16,7 @@ class CreateCandidatesTable extends Migration
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('profile_image');
+            $table->text('profile_image')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

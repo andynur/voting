@@ -37,3 +37,9 @@ div.dataTables_wrapper div.dataTables_length select {
     padding: 0;
     color: #fff;
 }
+
+.dataTables_length {
+  .custom-select {
+    padding-right: 1.5rem;
+  }
+}
