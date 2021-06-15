@@ -25,18 +25,18 @@ class TablesSeeder extends Seeder
 
         DB::table('candidates')->insert([
             [
-                'name' => 'Candidate #1',
-                'profile_image' => 'candidate_1.png',
+                'name' => 'Pdt. Sebinus Luther, M.Th',
+                'profile_image' => '/storage/candidates/kandidat-1.png',
                 'description' => '-'
             ],
             [
-                'name' => 'Candidate #2',
-                'profile_image' => 'candidate_2.png',
+                'name' => 'Pdt. Dr. Daniel Ronda',
+                'profile_image' => '/storage/candidates/kandidat-2.png',
                 'description' => '-'
             ],
             [
-                'name' => 'Candidate #3',
-                'profile_image' => 'candidate_3.png',
+                'name' => 'Pdt. Dr. Philipus Kading, M.Th',
+                'profile_image' => '/storage/candidates/kandidat-3.png',
                 'description' => '-'
             ]
         ]);

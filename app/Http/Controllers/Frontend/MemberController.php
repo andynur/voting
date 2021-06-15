@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Election;
 use App\Models\ElectionVote;
 use Auth;
 use Illuminate\Http\Request;
@@ -28,5 +29,15 @@ class MemberController extends Controller
         return response()->json([
             'message' => 'Success'
         ]);
+    }
+
+    public function polling() {
+        $election = Election::first();
+        $results = $election->candidates->map(function($candidate) {
+            return [$candidate->name, $candidate->votes()];
+        })->toArray();
+        array_push($results, ['Belum Memilih', $election->yetVoted()]);
+        $votes = $election->votes;
+        return view('frontend.polling', compact('results', 'election', 'votes'));
     }
 }

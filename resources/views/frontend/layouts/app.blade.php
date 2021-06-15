@@ -23,7 +23,7 @@
 
     <div id="app">
         @include('includes.partials.messages')
-
+        @include('frontend.includes.nav')
         <main>
             @yield('content')
         </main>

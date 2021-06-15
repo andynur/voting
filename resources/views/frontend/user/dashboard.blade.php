@@ -30,7 +30,7 @@
                                 @foreach ($election->election->candidates as $candidate)
                                 <div class="col-md-4 col-lg-4 col-sm-12">
                                     <div class="card {{$election->has_elected == 1 ? 'has-elected' : ''}} {{$election->vote()->candidate_id == $candidate->id && $election->has_elected == 1 ? 'elected' : 'not-elected'}}">
-                                        <img class="card-img-top" src="https://thispersondoesnotexist.com/image" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset($candidate->profile_image)}}" alt="Card image cap">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">{{$candidate->name}}</h5>
                                             @if ($election->has_elected == 0)
