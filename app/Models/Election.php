@@ -23,6 +23,10 @@ class Election extends Model
         return $this->hasMany(Voter::class, 'election_id', 'id');
     }
 
+    public function votes() {
+        return $this->hasMany(ElectionVote::class, 'election_id', 'id');
+    }
+
     public function candidates() {
         return $this->belongsToMany(Candidate::class, 'election_has_candidates');
     }
@@ -43,5 +47,9 @@ class Election extends Model
     public function scopeAvailableVoters() {
         $voters = $this->voters->pluck('user_id')->toArray();
         return User::whereNotIn('id', $voters)->get();
+    }
+
+    public function scopeCandidateVotes($query, $candidate_id) {
+        return $this->votes->where('candidate_id', $candidate_id);
     }
 }
