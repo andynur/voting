@@ -21,12 +21,6 @@ class TablesSeeder extends Seeder
                 'start_date' => now(),
                 'end_date' => now(),
             ],
-            [
-                'name' => 'Election #2',
-                'description' => 'Election #2 description',
-                'start_date' => now(),
-                'end_date' => now(),
-            ]
         ]);
 
         DB::table('candidates')->insert([
@@ -60,49 +54,15 @@ class TablesSeeder extends Seeder
                 'election_id' => 1,
                 'candidate_id' => 3,
             ],
-            [
-                'election_id' => 2,
-                'candidate_id' => 1,
-            ],
-            [
-                'election_id' => 2,
-                'candidate_id' => 3,
-            ],
         ]);
 
-        DB::table('voters')->insert([
-            [
-                'election_id' => 1,
-                'user_id' => 3,
-            ],
-            [
-                'election_id' => 1,
-                'user_id' => 4,
-            ],
-            [
-                'election_id' => 1,
-                'user_id' => 5,
-            ],
-            [
-                'election_id' => 1,
-                'user_id' => 6,
-            ],
-            [
-                'election_id' => 2,
-                'user_id' => 2,
-            ],
-            [
-                'election_id' => 2,
-                'user_id' => 3,
-            ],
-            [
-                'election_id' => 2,
-                'user_id' => 4,
-            ],
-            [
-                'election_id' => 2,
-                'user_id' => 5,
-            ],
-        ]);
+        foreach(DB::table('users')->get() as $user) {
+            DB::table('voters')->insert([
+                [
+                    'election_id' => 1,
+                    'user_id' => $user->id,
+                ],
+            ]);
+        }
     }
 }

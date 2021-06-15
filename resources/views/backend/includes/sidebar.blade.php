@@ -1,11 +1,7 @@
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-    <div class="c-sidebar-brand d-lg-down-none">
-        <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('img/brand/coreui.svg#full') }}"></use>
-        </svg>
-        <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('img/brand/coreui.svg#signet') }}"></use>
-        </svg>
+    <div class="c-sidebar-brand">
+        <img src="{{asset('img/logo.png')}}" width="118" height="46" class="img-fluid c-sidebar-brand-full">
+        <img src="{{asset('img/logo.png')}}" idth="46" height="46" class="img-fluid c-sidebar-brand-minimized">
     </div><!--c-sidebar-brand-->
 
     <ul class="c-sidebar-nav">
@@ -20,27 +16,19 @@
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
-                :href="route('admin.elections.index')"
-                :active="activeClass(Route::is('admin.elections.index'), 'c-active')"
-                icon="c-sidebar-nav-icon cil-folder"
-                :text="__('Pemilihan')" />
-        </li>
-        <li class="c-sidebar-nav-item">
-            <x-utils.link
-                class="c-sidebar-nav-link"
                 :href="route('admin.candidates.index')"
                 :active="activeClass(Route::is('admin.candidates.index'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-user"
                 :text="__('Kandidat')" />
         </li>
-        <li class="c-sidebar-nav-item">
+        {{-- <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
                 :href="route('admin.booth.index')"
                 :active="activeClass(Route::is('admin.booth.index'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-inbox"
                 :text="__('Bilik Suara')" />
-        </li>
+        </li> --}}
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
