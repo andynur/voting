@@ -11,8 +11,10 @@
                 </span>
             </div>
             <input class="form-control" name="pin" type="text" placeholder="KODE PIN PESERTA" value="{{ request()->pin ?? '' }}">
-
         </div>
+        @if($errors->any())
+            <p class="text-danger text-center font-weight-bold text-uppercase">{{$errors->first()}}</p>
+        @endif
         <button class="btn btn-lg btn-block btn-success" type="submit">Login</button>
         {{-- <div class="text-center mt-3">
             <a href="{{ url('/') }}">Kembali ke Beranda</a>

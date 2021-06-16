@@ -103,7 +103,6 @@ class LoginController
             $user = User::where('pin', $request->pin)->first();
             if(!empty($user)) {
                 Auth::loginUsingId($user->id, true);
-
                 return redirect('voting');
             }
         }
@@ -114,8 +113,7 @@ class LoginController
             );
         } catch (HttpResponseException $exception) {
             $this->incrementLoginAttempts($request);
-
-            throw $exception;
+            return redirect()->back()->withErrors(['error', 'your message,here']);
         }
     }
 
@@ -129,16 +127,17 @@ class LoginController
      */
     protected function authenticated(Request $request, $user)
     {
-        if (! $user->isActive()) {
-            auth()->logout();
-
-            return redirect()->route('frontend.auth.login')->withFlashDanger(__('Your account has been deactivated.'));
-        }
-
-        event(new UserLoggedIn($user));
-
-        if (config('boilerplate.access.user.single_login')) {
-            auth()->logoutOtherDevices($request->password);
+        if($user) {
+            if (!$user->isActive()) {
+                auth()->logout();
+                return redirect()->route('frontend.auth.login')->withFlashDanger(__('Your account has been deactivated.'));
+            }
+            event(new UserLoggedIn($user));
+            if (config('boilerplate.access.user.single_login')) {
+                auth()->logoutOtherDevices($request->password);
+            }
+        } else {
+            redirect()->back();
         }
     }
 
