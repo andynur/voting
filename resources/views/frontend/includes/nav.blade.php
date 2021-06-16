@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm d-none">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="@lang('Toggle navigation')">
             <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
                         :text="__('Home')"
                         class="nav-link" />
                 </li>
-                @if (auth()->check() && auth()->user()->isUser()) {
+                @if (auth()->check() && auth()->user()->isUser())
                     <li class="nav-item">
                         <x-utils.link
                             :href="route('frontend.voting')"

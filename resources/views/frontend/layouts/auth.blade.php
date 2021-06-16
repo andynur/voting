@@ -10,6 +10,9 @@
     @yield('meta')
     <link href="{{ mix('css/backend.css') }}" rel="stylesheet">
     <style>
+        .c-header {
+            padding: 0 4rem;
+        }
         .form-control {
             height: calc(2em + 0.75rem + 2px);
         }
@@ -21,36 +24,53 @@
         }
 
         @media (max-width: 576px) {
+            .c-header {
+                padding: 0;
+            }
             .logo {
                 height: 11rem;
             }
         }
     </style>
-    <livewire:styles />
     @stack('after-styles')
 </head>
-<body class="c-app flex-row align-items-center">
-    <div class="container">
-        <img src="{{ asset('img/logo.png') }}" alt="logo" class="logo">
+<body class="c-app">
+    @include('backend.includes.sidebar_guest')
 
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card mx-4">
-                    <div class="card-body text-center p-4">
-                        <h2>E-VOTE KONDA2 BALIKPAPAN</h2>
-                        <h4 class="text-muted mb-4">17-18 Juni 2021</h4>
+    <div class="c-wrapper c-fixed-components">
+        @include('backend.includes.header_guest')
 
-                        @yield('content')
+        <div class="c-body">
+            <main class="c-main">
+                <div class="container-fluid">
+                    <div class="fade-in">
+                        <div class="container">
+                            <img src="{{ asset('img/logo.png') }}" alt="logo" class="logo">
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 p-0">
+                                    <div class="card">
+                                        <div class="card-body text-center p-4">
+                                            <h2>E-VOTE KONDA2 BALIKPAPAN</h2>
+                                            <h4 class="text-muted mb-4">17-18 Juni 2021</h4>
+
+                                            @yield('content')
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
+            </main>
         </div>
     </div>
 
     @stack('before-scripts')
     <script src="{{ mix('js/manifest.js') }}"></script>
-    <livewire:scripts />
+    <script src="{{ mix('js/vendor.js') }}"></script>
+    <script src="{{ mix('js/backend.js') }}"></script>
     @stack('after-scripts')
 </body>
 </html>
