@@ -35,14 +35,15 @@
     @stack('after-styles')
 </head>
 <body class="c-app">
-    @isset($hide_menu)
+    @php $hide_menu = $hide_menu ?? false; @endphp
+    @if(!$hide_menu)
         @include('backend.includes.sidebar_guest')
-    @endisset
+    @endif
 
     <div class="c-wrapper c-fixed-components">
-        @isset($hide_menu)
+        @if(!$hide_menu)
             @include('backend.includes.header_guest')
-        @endisset
+        @endif
 
         <div class="c-body">
             <main class="c-main">

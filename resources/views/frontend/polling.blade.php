@@ -3,7 +3,7 @@
 @section('title', __('Dashboard'))
 
 @section('content')
-    <div class="container py-4">
+    <div class="container pb-4">
       <div class="row">
         <div class="col-sm-6 col-lg-6 col-12">
             <div class="card mb-4 text-white bg-success">
@@ -33,10 +33,11 @@
                     <div class="card align-items-center pt-0">
                         <img class="card-img-top" src="{{asset($candidate->profile_image)}}" alt="Card image cap">
                         <div class="card-body text-center">
-                            
+
                         </div>
                         <div class="w-100 text-center py-3" style="background: {{$colors[$loop->iteration - 1]}}">
-                            <h5 class="card-title text-white font-weight-bold m-0">#{{$loop->iteration}} {{$candidate->name}}</h5>
+                            <h5 class="card-title text-white m-0">#{{$loop->iteration}} {{$candidate->name}}</h5>
+                            <h1 class="text-white mt-2">{{ $candidate->votes() }} Suara</h1>
                         </div>
                     </div>
                 </div>

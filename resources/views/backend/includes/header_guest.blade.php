@@ -44,12 +44,12 @@
                         </x-slot>
                     </x-utils.link>
                 @else
-                    <x-utils.link
+                    {{-- <x-utils.link
                         href="{{ route('frontend.auth.login') }}"
                         class="dropdown-item"
                         icon="c-icon mr-2 cil-lock-unlocked">
                         <x-slot name="text">Login Admin</x-slot>
-                    </x-utils.link>
+                    </x-utils.link> --}}
                     <x-utils.link
                         href="{{ route('frontend.auth.login_member') }}"
                         class="dropdown-item"

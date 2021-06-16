@@ -1,4 +1,4 @@
-@extends('frontend.layouts.auth')
+@extends('frontend.layouts.auth', ['hide_menu' => true])
 
 @section('title', 'Beranda')
 
