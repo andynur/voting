@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Election;
+use App\Models\ElectionVote;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,32 @@ class BoothController extends Controller
     {
         $votes = Election::first()->votes;
         return view('backend.booth.index', compact('votes'));
+    }
+
+    public function destroy($id) {
+        $vote = ElectionVote::findOrFail($id);
+        $vote->voter->update([
+            'has_elected' => 0,
+            'selected_date' => null
+        ]);
+        $vote->delete();
+        return response()->json([
+            'message' => 'Success'
+        ]);
+    }
+
+    public function destroyAll() {
+        $votes = Election::first()->votes;
+        foreach($votes as $vote) {
+            $vote->voter->update([
+                'has_elected' => 0,
+                'selected_date' => null
+            ]);
+            $vote->delete();
+        }
+        return response()->json([
+            'message' => 'Success'
+        ]);
     }
 
     public function count() {

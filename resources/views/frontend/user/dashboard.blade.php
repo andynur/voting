@@ -82,7 +82,7 @@
             background-color: #dfd;
         }
         .radio-container input[type="radio"]:checked + label {
-            /* background-color: #bfb; */
+            background-color: #bfb;
             border-color: #4c4;
         }
         .card.has-elected.elected {
