@@ -19,19 +19,19 @@
                 @endif
 
                 <form action="#">
-                    <div class="row">
+                    <div class="row candidate-container">
                         @foreach ($election->election->candidates as $candidate)
                         <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card {{$election->has_elected == 1 ? 'has-elected' : ''}} {{$election->vote()->candidate_id == $candidate->id && $election->has_elected == 1 ? 'elected' : 'not-elected'}}">
                                 <img class="card-img-top" src="{{asset($candidate->profile_image)}}" alt="Card image cap">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">{{$candidate->name}}</h5>
+                                <div class="card-body pb-2 text-center">
+                                    <h4 class="card-title">{{$candidate->name}}</h4>
                                     @if ($election->has_elected == 0)
-                                        <div class="radio-container mt-4">
+                                        <div class="radio-container p-2">
                                             <input type="radio" id="candididate-{{$candidate->id}}" name="candidate" value="{{$candidate->id}}">
                                             <label for="candididate-{{$candidate->id}}" class="w-100">
-                                                <i class="fas fa-check mr-2"></i>
-                                                Pilih
+                                                <h1 style="font-size: 2.5rem;" class="text-success"><i class="fas fa-check mr-2 pt-2"></i><h1>
+                                                <p style="font-size: 1.2rem;">Pilih Kandidat</p>
                                             </label>
                                         </div>
                                     @else
@@ -49,14 +49,15 @@
                     </div>
                 </form>
                 @if ($election->has_elected === 0)
-                    <button class="btn btn-success w-100 mt-4 btn-lg" id="submit-button">
-                        Kirim
+                    <button class="btn btn-success w-100 mt-1 btn-lg p-3" id="submit-button">
+                        <i class="fas fa-paper-plane mr-2"></i> <b>KIRIM PILIHAN</b>
                     </button>
                 @endif
             </div>
         </div>
     </div>
 @endsection
+
 @push('after-styles')
     <style>
         .radio-container {
@@ -72,7 +73,7 @@
             padding: 5px 20px;
             font-family: sans-serif, Arial;
             font-size: 16px;
-            border: 2px solid #444;
+            border: 2px solid #42be6c;
             border-radius: 4px;
             cursor: pointer;
         }
@@ -81,7 +82,7 @@
             background-color: #dfd;
         }
         .radio-container input[type="radio"]:checked + label {
-            background-color: #bfb;
+            /* background-color: #bfb; */
             border-color: #4c4;
         }
         .card.has-elected.elected {
@@ -92,8 +93,25 @@
             background-color: #E3342F;
             color: #fff!important;
         }
+
+        .candidate-container .card {
+            background: #f7f7f7;
+            margin-top: .5rem;
+        }
+        .candidate-container .card .card-img-top {
+            width: 14rem;
+            padding-top: 1rem;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .candidate-container .card .card-img-top {
+                width: 10rem;
+                padding-top: 1rem;
+            }
+        }
     </style>
 @endpush
+
 @push('after-scripts')
     <script>
         $(function() {
