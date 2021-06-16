@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Election;
 use App\Models\ElectionVote;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -24,7 +25,7 @@ class MemberController extends Controller
         $voter = Auth::user()->elections->first();
         $voter->update([
             'has_elected' => 1,
-            'selected_date' => now()
+            'selected_date' => date('Y-m-d H:m:s')
         ]);
         $vote = ElectionVote::create([
             'election_id' => $voter->election_id,
