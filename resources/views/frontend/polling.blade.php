@@ -88,7 +88,7 @@
             background: #f7f7f7;
         }
         .candidate-container .card .card-img-top {
-            width: 20rem;
+            width: 14rem;
             padding-top: 1rem;
         }
         @media (max-width: 768px) {
