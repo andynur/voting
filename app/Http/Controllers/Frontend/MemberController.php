@@ -35,14 +35,15 @@ class MemberController extends Controller
             'message' => 'Success'
         ]);
     }
-
+    
     public function polling() {
+        $colors = ['#FEC007', '#4CBC74', '#62C2DF', '#86D6A', '#21A8D9'];
         $election = Election::first();
         $results = $election->candidates->map(function($candidate) {
             return [$candidate->name, $candidate->votes()];
         })->toArray();
         array_push($results, ['Belum Memilih', $election->yetVoted()]);
         $votes = $election->votes;
-        return view('frontend.polling', compact('results', 'election', 'votes'));
+        return view('frontend.polling', compact('results', 'election', 'votes', 'colors'));
     }
 }

@@ -117,6 +117,10 @@
                         enabled: true,
                         format: '{point.name}'
                     }
+                },
+                series: {
+                    colorByPoint: true,
+                    colors: ['#FEC007', '#4CBC74', '#62C2DF', '#21A8D9', '#21A8D9']
                 }
             },
             series: [{
@@ -137,6 +141,12 @@
                 categories: results.map(result => result[0]),
                 title: {
                     text: null
+                }
+            },
+            plotOptions: {
+                series: {
+                    colorByPoint: true,
+                    colors: ['#FEC007', '#4CBC74', '#62C2DF', '#86D6A', '#21A8D9']
                 }
             },
             yAxis: {

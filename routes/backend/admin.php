@@ -29,6 +29,7 @@ Route::group(['prefix' => 'notification', 'as' => 'notification.',], function ()
 // Route::post('notification', [LoginController::class, 'login']);
 Route::post("candidates/{id}", ['as' => "candidates.update_new", 'uses' => "App\Http\Controllers\Backend\CandidateController@update"]);
 Route::resource('candidates', CandidateController::class)->except(['update']);
+Route::get('booth/count', [BoothController::class, 'count'])->name('booth.count');
 Route::resource('booth', BoothController::class);
 Route::get("reports", ['as' => "reports.index", 'uses' => "App\Http\Controllers\Backend\ReportController@index"]);
 Route::get("reports/export", ['as' => "reports.export", 'uses' => "App\Http\Controllers\Backend\ReportController@export"]);

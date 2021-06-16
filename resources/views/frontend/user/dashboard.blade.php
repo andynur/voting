@@ -1,61 +1,57 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.core')
 
-@section('title', __('Dashboard'))
+@section('title', __('Vote'))
 
 @section('content')
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <x-frontend.card>
-                    <x-slot name="header">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <h3 class="m-0">Voting</h3>
-                            <a href="/" class="btn btn-info btn-sm text-white">
-                                <i class="fas fa-arrow-left mr-2"></i>
-                                Kembali
-                            </a>
-                        </div>
-                    </x-slot>
-
-                    <x-slot name="body">
-                        @if ($election->has_elected !== 0)
-                            <div class="alert alert-success" role="alert">
-                                <i class="fas fa-check-circle mr-2"></i>
-                                <b>Anda Sudah Memilih!</b> Terima kasih karena telah menggunakan suara anda dengan bijak
-                            </div>
-                        @endif
-                        
-                        <form action="#">
-                            <div class="row">
-                                @foreach ($election->election->candidates as $candidate)
-                                <div class="col-md-4 col-lg-4 col-sm-12">
-                                    <div class="card {{$election->has_elected == 1 ? 'has-elected' : ''}} {{$election->vote()->candidate_id == $candidate->id && $election->has_elected == 1 ? 'elected' : 'not-elected'}}">
-                                        <img class="card-img-top" src="{{asset($candidate->profile_image)}}" alt="Card image cap">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">{{$candidate->name}}</h5>
-                                            @if ($election->has_elected == 0)
-                                                <div class="radio-container mt-4">
-                                                    <input type="radio" id="candididate-{{$candidate->id}}" name="candidate" value="{{$candidate->id}}">
-                                                    <label for="candididate-{{$candidate->id}}" class="w-100">
-                                                        <i class="fas fa-check mr-2"></i>
-                                                        Pilih
-                                                    </label>
-                                                </div>
-                                            @endif
+                <h1 class="text-center mb-4">Daftar Kandidat</h1>
+                @if ($election->has_elected !== 0)
+                    <div class="alert alert-success" role="alert">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <b>Anda Sudah Memilih!</b> Terima kasih karena telah menggunakan suara anda dengan bijak
+                    </div>
+                @endif
+                <form action="#">
+                    <div class="row">
+                        @foreach ($election->election->candidates as $candidate)
+                        <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card {{$election->has_elected == 1 ? 'has-elected' : ''}} {{$election->vote()->candidate_id == $candidate->id && $election->has_elected == 1 ? 'elected' : 'not-elected'}}">
+                                <img class="card-img-top" src="{{asset($candidate->profile_image)}}" alt="Card image cap">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{$candidate->name}}</h5>
+                                    @if ($election->has_elected == 0)
+                                        <div class="radio-container mt-4">
+                                            <input type="radio" id="candididate-{{$candidate->id}}" name="candidate" value="{{$candidate->id}}">
+                                            <label for="candididate-{{$candidate->id}}" class="w-100">
+                                                <i class="fas fa-check mr-2"></i>
+                                                Pilih
+                                            </label>
                                         </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </form>
+                                    @else
+                                        @if ($election->vote()->candidate_id == $candidate->id && $election->has_elected == 1)
+                                            <i class="fas fa-check-circle fa-5x"></i>
+                                        @else
+                                            <i class="fas fa-times-circle fa-5x"></i>
+                                        @endif
+                                    @endif
 
-                        @if ($election->has_elected === 0)
-                            <button class="btn btn-success w-100 mt-4" id="submit-button">
-                                Kirim
-                            </button>
-                        @endif
-                    </x-slot>
-                </x-frontend.card>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </form>
+                @if ($election->has_elected === 0)
+                    <button class="btn btn-success w-100 mt-4 btn-lg" id="submit-button">
+                        Kirim
+                    </button>
+                @else
+                    <a href="{{route('frontend.live-polling')}}" class="btn btn-info w-100 btn-lg">
+                        Lihat Hasil Voting
+                    </a>
+                @endif
             </div>
         </div>
     </div>

@@ -40,6 +40,14 @@
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
+                :href="route('admin.booth.count')"
+                :active="activeClass(Route::is('admin.booth.count'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-bar-chart"
+                :text="__('Hitung Cepat')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
                 :href="route('admin.reports.index')"
                 :active="activeClass(Route::is('admin.reports.index'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-file"
