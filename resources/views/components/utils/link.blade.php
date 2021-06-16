@@ -1,4 +1,4 @@
-@props(['active' => '', 'text' => '', 'hide' => false, 'icon' => false, 'permission' => false])
+@props(['active' => 'active', 'text' => '', 'hide' => false, 'icon' => false, 'permission' => false])
 
 @if ($permission)
     @if ($logged_in_user->can($permission))

@@ -7,12 +7,18 @@
         <img src="{{asset('img/logo-black.png')}}" width="80" class="img-fluid c-sidebar-brand-full">
     </a>
 
-    <ul class="c-header-nav d-md-down-none">
-        <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="{{ route('frontend.index') }}">Home</a></li>
+    <ul class="c-header-nav d-md-down-none header_guest">
+        <li class="c-header-nav-item px-3">
+            <a class="c-header-nav-link {{ activeClass(Route::is('frontend.index')) }}" href="{{ route('frontend.index') }}">Home</a>
+        </li>
         @if (auth()->check() && auth()->user()->isUser())
-            <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="{{ route('frontend.voting') }}">Voting</a></li>
+            <li class="c-header-nav-item px-3">
+                <a class="c-header-nav-link {{ activeClass(Route::is('frontend.voting')) }}" href="{{ route('frontend.voting') }}">Voting</a>
+            </li>
         @endif
-        <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="{{ route('frontend.live-polling') }}">Live Polling</a></li>
+        <li class="c-header-nav-item px-3">
+            <a class="c-header-nav-link {{ activeClass(Route::is('frontend.live-polling')) }}" href="{{ route('frontend.live-polling') }}">Live Polling</a>
+        </li>
     </ul>
 
     <ul class="c-header-nav ml-auto mr-2">

@@ -3,7 +3,7 @@
 @section('title', __('Vote'))
 
 @section('content')
-    <div class="container py-4">
+    <div class="container pb-4">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h1 class="text-center mb-4">Daftar Kandidat</h1>
@@ -12,7 +12,12 @@
                         <i class="fas fa-check-circle mr-2"></i>
                         <b>Anda Sudah Memilih!</b> Terima kasih karena telah menggunakan suara anda dengan bijak
                     </div>
+
+                    <a href="{{route('frontend.live-polling')}}" class="btn btn-info w-100 btn-lg mb-3">
+                        <i class="fas fa-balance-scale mr-2"></i> Lihat Live Polling
+                    </a>
                 @endif
+
                 <form action="#">
                     <div class="row">
                         @foreach ($election->election->candidates as $candidate)
@@ -47,10 +52,6 @@
                     <button class="btn btn-success w-100 mt-4 btn-lg" id="submit-button">
                         Kirim
                     </button>
-                @else
-                    <a href="{{route('frontend.live-polling')}}" class="btn btn-info w-100 btn-lg">
-                        Lihat Hasil Voting
-                    </a>
                 @endif
             </div>
         </div>

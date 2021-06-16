@@ -10,7 +10,7 @@
                 <div class="card-body pb-2 d-flex justify-content-between align-items-start">
                     <div>
                         <h5>Total Suara Masuk</h5>
-                        <h1>{{$election->hasVoted()}}</h1>
+                        <h1>{{$election->hasVoted()}} Suara</h1>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="card-body pb-2 d-flex justify-content-between align-items-start">
                     <div>
                         <h5>Total Suara Belum Masuk</h5>
-                        <h1>{{$election->yetVoted()}}</h1>
+                        <h1>{{$election->yetVoted()}} Suara</h1>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="col-md-4 col-lg-4 col-sm-12">
                     <div class="card align-items-center pt-0">
                         <img class="card-img-top" src="{{asset($candidate->profile_image)}}" alt="Card image cap">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center p-2">
 
                         </div>
                         <div class="w-100 text-center py-3" style="background: {{$colors[$loop->iteration - 1]}}">
@@ -92,9 +92,6 @@
             padding-top: 1rem;
         }
         @media (max-width: 768px) {
-            .candidate-container .col-md-4 {
-                padding: 0px 5rem;
-            }
             .candidate-container .card .card-img-top {
                 width: 10rem;
                 padding-top: 1rem;

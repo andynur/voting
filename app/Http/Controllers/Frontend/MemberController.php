@@ -17,7 +17,7 @@ class MemberController extends Controller
             return view('frontend.user.dashboard', compact('election'));
         }
 
-        abort(404);
+        return redirect('/');
     }
 
     public function voted($candidate_id) {
@@ -35,7 +35,7 @@ class MemberController extends Controller
             'message' => 'Success'
         ]);
     }
-    
+
     public function polling() {
         $colors = ['#FEC007', '#4CBC74', '#62C2DF', '#86D6A', '#21A8D9'];
         $election = Election::first();

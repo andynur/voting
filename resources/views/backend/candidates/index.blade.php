@@ -24,27 +24,27 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Nama</th>
                         <th>Foto</th>
+                        <th>Nama</th>
                         <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($candidates as $candidate)
-                        <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$candidate->name}}</td>
+                        <tr class="middle-row">
+                            <td><h3>{{$loop->iteration}}</h3></td>
                             <td>
-                                <img class="img-fluid" width="150px" src="{{asset($candidate->profile_image)}}" alt="">
+                                <img class="img-fluid rounded-circle" width="100px" src="{{asset($candidate->profile_image)}}" alt="">
                             </td>
+                            <td><h4>{{$candidate->name}}</h4></td>
                             <td>{{$candidate->description}}</td>
                             <td style="width: 150px">
                                 <a href="{{route('admin.candidates.edit', $candidate->id)}}" class="btn btn-sm btn-warning text-white">
-                                    <i class="cil-pen-alt"></i>
+                                    <i class="cil-pen-alt"></i> Ubah
                                 </a>
                                 <button data-route="{{route('admin.candidates.destroy', $candidate->id)}}" class="delete-button btn btn-sm btn-danger">
-                                    <i class="cil-trash"></i>
+                                    <i class="cil-trash"></i> Hapus
                                 </button>
                             </td>
                         </tr>
@@ -54,3 +54,11 @@
         </x-slot>
     </x-backend.card>
 @endsection
+
+@push('after-styles')
+    <style>
+        .middle-row td {
+            vertical-align: middle;
+        }
+    </style>
+@endpush
