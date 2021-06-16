@@ -1,4 +1,4 @@
-@extends('frontend.layouts.auth')
+@extends('frontend.layouts.auth', ['hide_menu' => true])
 
 @section('title', 'Login Peserta')
 
@@ -13,8 +13,8 @@
             <input class="form-control" name="pin" type="text" placeholder="KODE PIN PESERTA">
         </div>
         <button class="btn btn-lg btn-block btn-success" type="submit">Login</button>
-        <div class="text-center mt-3">
+        {{-- <div class="text-center mt-3">
             <a href="{{ url('/') }}">Kembali ke Beranda</a>
-        </div>
+        </div> --}}
     </x-forms.post>
 @endsection

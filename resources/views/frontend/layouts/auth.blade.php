@@ -35,10 +35,14 @@
     @stack('after-styles')
 </head>
 <body class="c-app">
-    @include('backend.includes.sidebar_guest')
+    @isset($hide_menu)
+        @include('backend.includes.sidebar_guest')
+    @endisset
 
     <div class="c-wrapper c-fixed-components">
-        @include('backend.includes.header_guest')
+        @isset($hide_menu)
+            @include('backend.includes.header_guest')
+        @endisset
 
         <div class="c-body">
             <main class="c-main">
