@@ -44,7 +44,7 @@ class WhatsAppNotification implements ShouldQueue
         $message .= 'Kode PIN: *'. $data['pin'] .'*\n';
         $message .= 'URL Voting: '. url('/login-member?pin='. $data['pin']) .'\n';
         $message .= '---------------\n';
-        $message .= '_Pesan ini dikirim otomatis melalui sistem e-voting.com, tidak untuk dibalas._\n';
+        $message .= '_Pesan ini dikirim otomatis melalui sistem konda2bpp.com, tidak untuk dibalas._\n';
         $message .= '#'. time();
 
         return $message;

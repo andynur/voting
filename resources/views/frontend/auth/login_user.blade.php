@@ -7,10 +7,11 @@
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">
-                    <i class="c-icon cil-lock-locked"></i>
+                    <i class="c-icon cil-lock-locked mr-1"></i> PIN
                 </span>
             </div>
-            <input class="form-control" name="pin" type="text" placeholder="KODE PIN PESERTA">
+            <input class="form-control" name="pin" type="text" placeholder="KODE PIN PESERTA" value="{{ request()->pin ?? '' }}">
+
         </div>
         <button class="btn btn-lg btn-block btn-success" type="submit">Login</button>
         {{-- <div class="text-center mt-3">
