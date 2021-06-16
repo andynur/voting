@@ -25,7 +25,7 @@ class MemberController extends Controller
         $voter = Auth::user()->elections->first();
         $voter->update([
             'has_elected' => 1,
-            'selected_date' => date('Y-m-d H:m:s')
+            'selected_date' => Carbon::now()->addHour()->format('Y-m-d H:i:s')
         ]);
         $vote = ElectionVote::create([
             'election_id' => $voter->election_id,
