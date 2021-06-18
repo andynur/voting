@@ -36,7 +36,8 @@
 
                         </div>
                         <div class="w-100 text-center py-3" style="background: {{$colors[$loop->iteration - 1]}}">
-                            <h5 class="card-title text-white m-0">#{{$loop->iteration}} {{$candidate->name}}</h5>
+                            <h3 class="text-white mb-2">#{{$loop->iteration}}</h3>
+                            <h5 class="card-title text-white m-0">{{$candidate->name}}</h5>
                             <h1 class="text-white mt-2">{{ $candidate->votes() }} Suara</h1>
                         </div>
                     </div>
@@ -88,7 +89,7 @@
             background: #f7f7f7;
         }
         .candidate-container .card .card-img-top {
-            width: 20rem;
+            width: 14rem;
             padding-top: 1rem;
         }
         @media (max-width: 768px) {

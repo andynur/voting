@@ -7,7 +7,11 @@
     <div class="row mt-4">
         <div class="col-12">
             @auth
-                <a href="{{route('frontend.voting')}}" class="btn btn-lg btn-success btn-block text-white mb-2"><i class="fas fa-check mr-2"></i>Voting</a>
+                @if (auth()->user()->isUser())
+                    <a href="{{route('frontend.voting')}}" class="btn btn-lg btn-success btn-block text-white mb-2"><i class="fas fa-check mr-2"></i>Voting</a>
+                @else
+                    <a href="{{route('admin.dashboard')}}" class="btn btn-lg btn-success btn-block text-white mb-2"><i class="fas fa-sign-in-alt mr-2"></i>Dashboard</a>
+                @endif
             @endauth
         </div>
         <div class="col-12">

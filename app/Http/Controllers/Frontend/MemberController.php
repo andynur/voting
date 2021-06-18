@@ -40,8 +40,9 @@ class MemberController extends Controller
     public function polling() {
         $colors = ['#FEC007', '#4CBC74', '#62C2DF', '#86D6A', '#21A8D9'];
         $election = Election::first();
+        $no = 0;
         $results = $election->candidates->map(function($candidate) {
-            return [$candidate->name, $candidate->votes()];
+            return ['#'. $candidate->id .' - '. $candidate->name, $candidate->votes()];
         })->toArray();
         array_push($results, ['Belum Memilih', $election->yetVoted()]);
         $votes = $election->votes;

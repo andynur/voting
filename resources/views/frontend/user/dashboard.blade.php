@@ -22,9 +22,9 @@
                     <div class="row candidate-container">
                         @foreach ($election->election->candidates as $candidate)
                         <div class="col-md-4 col-lg-4 col-sm-12">
-                            <div class="card {{$election->has_elected == 1 ? 'has-elected' : ''}} {{$election->vote()->candidate_id == $candidate->id && $election->has_elected == 1 ? 'elected' : 'not-elected'}}">
+                            <div class="card {{$election->has_elected == 1 ? 'has-elected py-2' : ''}} {{$election->vote()->candidate_id == $candidate->id && $election->has_elected == 1 ? 'elected' : 'not-elected'}}">
                                 <img class="card-img-top" src="{{asset($candidate->profile_image)}}" alt="Card image cap">
-                                <div class="card-body pb-2 text-center">
+                                <div class="card-body pt-0 pb-3 text-center">
                                     <h4 class="card-title">{{$candidate->name}}</h4>
                                     @if ($election->has_elected == 0)
                                         <div class="radio-container p-2">
@@ -100,13 +100,12 @@
         }
         .candidate-container .card .card-img-top {
             width: 14rem;
-            padding-top: 1rem;
-            margin: 0 auto;
+            border-radius: 50%;
+            margin: 1rem auto;
         }
         @media (max-width: 768px) {
             .candidate-container .card .card-img-top {
                 width: 10rem;
-                padding-top: 1rem;
             }
         }
     </style>
