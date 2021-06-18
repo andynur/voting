@@ -119,6 +119,7 @@ class CandidateController extends Controller
     public function update(Request $request, $id)
     {
         $candidate = Candidate::findOrFail($id);
+        $candidate->update($request->except(['profile_image']));
         $candidate->profile_image = $this->editFile($candidate->profile_image, $request, 'profile_image', 'candidates');
         $candidate->save();
         return redirect()->route('admin.candidates.index')->withFlashSuccess('Data kandidat baru telah diubah');
