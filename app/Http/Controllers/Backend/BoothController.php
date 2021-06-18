@@ -49,7 +49,7 @@ class BoothController extends Controller
 
     public function count() {
         $candidates = Election::first()->candidates;
-        $colors = ['#FEC007', '#4CBC74', '#62C2DF', '#86D6A', '#21A8D9'];
+        $colors = ['#FEC007', '#4CBC74', '#62C2DF', '#e55353', '#21A8D9'];
 
         return view('backend.booth.count', compact('candidates', 'colors'));
     }

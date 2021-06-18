@@ -38,7 +38,7 @@ class MemberController extends Controller
     }
 
     public function polling() {
-        $colors = ['#FEC007', '#4CBC74', '#62C2DF', '#86D6A', '#21A8D9'];
+        $colors = ['#FEC007', '#4CBC74', '#62C2DF', '#e55353', '#21A8D9'];
         $election = Election::first();
         $no = 0;
         $results = $election->candidates->map(function($candidate) {
